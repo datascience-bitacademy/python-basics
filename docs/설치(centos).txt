@@ -1,0 +1,87 @@
+
+Linux(CentOS) 설치
+​
+- 주로 배포된 파이썬 애플리케이션의 실행 환경을 구축한다. 
+- CentOS에는 yum(Yellow dog Updater, Modified)이라는 RPM 기반의 레드햇 패키지 설치/업데이트/제거 도구가 있는데 Python 2.X로 작성되어 있다. 따라서 CentOS에는 Python2.x가 이미 설치되어 있다.
+
+​- Python2.x를 제거하고 Python3를 새로 설치하면 Python2.x와 Python3.x는 호환되지 않기 때문에 yum이 작동되지 않는다. 이는 CenOS 서버 운용에 문제를 발생시킬 수 있기 때문에 보통 CenOS에서는 Python3.x를 따로 설치한다. 
+
+- 실행에서도 python 로 Python3 인터프리터를 실행하고 싶겠지만, 이 시도도 yum 실행에 문제를 발생시킨다. Python3 실행은 python3 로 하는 것이 보통이다.
+
+2-1. 의존성 라이브러리 설치 및 설정
+​ yum을 사용하여 다음 라이브러리를 차례로 설치한다.
+
+# yum install -y openssl
+# yum install -y openssl-devel
+# yum install -y bzip2-devel
+# yum install -y sqlite-devel
+# yum install -y zlib-devel
+# yum install -y libffi-devel
+
+​ libressl 은 소스 컴파일 방식으로 설치하고 공유 라이브러리 캐시를 설정하여야 한다.
+# wget https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-2.9.2.tar.gz
+# tar xvfz libressl-2.9.2.tar.gz 
+# cd libressl-2.9.2
+# ./configure --prefix=/usr/local/ssl
+# make
+# make install
+​ 공유 라이브러리 캐시 설정을 위해 다음 내용의 /etc/ld.so.conf.d/ssl.conf 를 만든다.
+
+# vi /etc/ld.so.conf.d/ssl.conf
+​ 
+ssl.conf 내용
+/usr/local/ssl/lib
+
+ldconfig 실행 및 확인
+# ldconfig -v | grep ssl
+
+/usr/local/ssl/lib:
+	libssl.so.47 -> libssl.so.47.0.5
+	libssl.so.10 -> libssl.so.1.0.2k
+	libssl3.so -> libssl3.so
+
+
+2-2. 설치 및 설정
+​ 파이썬 소스를 다운로드 받아 설정하고 컴파일 후 설치하는 것은 비교적 쉽다. 설치 위치는 /usr/local/kickscar/python3.7.6 에 설치했고 라이브러는 공유 라이브러리로 설치하였기 때문에 앞의 libssl과 마찬가지로 공유 라이브러리 캐시 설정을 해주는 것이 좋다.
+
+# wget https://www.python.org/ftp/python/3.7.6/Python-3.7.6.tgz
+# tar xvfz Python-3.7.6.tgz 
+# cd Python-3.7.6
+# ./configure --prefix=/usr/local/ds/python3.7.6 --with-openssl=/usr/local/ssl --enable-shared
+# make
+# make install
+​
+2-3.설치 디렉토리 링크 
+# ln -s /usr/local/ds/python3.7.6 /usr/local/ds/python
+​
+2-4. 공유 라이브러리 설정
+/etc/ld.so.conf.d/python.conf 생성
+
+내용
+/usr/local/ds/python/lib
+​
+ ldconfig 실행 및 확인
+# ldconfig -v | grep python
+
+/usr/local/kickscar/python3.7.6/lib:
+	libpython3.so -> libpython3.so
+	libpython3.7m.so.1.0 -> libpython3.7m.so.1.0
+	libpython2.7.so.1.0 -> libpython2.7.so.1.0
+​
+
+2-5. PATH 설정
+/etc/profile 수정
+
+내용:
+# python
+export PATH=$PATH:/usr/local/ds/python/bin
+​
+설정 적용
+# source /etc/profile
+
+2-6. 설치 확인
+# python3 --version
+Python 3.7.6
+
+
+

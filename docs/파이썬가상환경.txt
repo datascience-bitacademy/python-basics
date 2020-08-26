@@ -1,0 +1,27 @@
+Python Virtual Environment (Isolation Tool)
+
+1. venv             : python3.3 부터 기본 모듈에 포함(표준)              o       
+2. virtualenv   : python2부터 사용했던 가상환경 라이브러리       o
+3. pyenv          : 
+4. conda          : Anaconda Python 설치후, 사용가능하다.
+5. etc               : virtualWrapper, buildout .....                        
+
+
+ venv로 파이썬 프로젝트 가상환경 만들기
+
+1. 프로젝트 디렉토리 만들기
+# mkdir log-analysis
+
+2. 프로젝트 디렉토리로 가기
+# cd log-analysis
+
+3. 가상환경 생성하기
+# python3 -m venv venv
+
+4. 가상환경 구동(activate)
+# source venv/bin/activate
+
+5. 확인
+(venv) # python
+
+   
