@@ -61,5 +61,44 @@ print(s1[2:])
 # len() 함수(sequence 타입이 가지는 특징)
 print(len(s1))
 
+# in, not in 연산자(sequence 타입이 가지는 특징)
+print("s" in s2)
+print("s" not in s2)
 
+print('====== 포맷팅 =======')
+# tuple
+print("name: %s, age: %d" % ('둘리', 10))
+
+# format() 함수
+name = '마이콜'
+age = 30
+print("name: " + format(name, 's') + ",age: " + format(age, 'd'))
+
+print('======== 객체함수 =======')
+s8 = 'i like Python'
+print(s8.upper())
+print(s8.lower())
+print(s8.swapcase())
+print(s8.capitalize())
+print(s8.title())
+
+s9 = 'I Like Python, I Like Java Also'
+print(s9.count('Like'))
+print(s9.find('Like'))
+print(s9.find('Like', 5))
+print(s9.find('JavaScript'))
+print(s9.rfind('Like'))
+
+# str 객체는 변경할 수 없다(불변성, Immutable)
+# s10 = 'hello'
+# s10[0] = 'f'
+# print(s10)
+
+# [cf] list는 변경 가능하다(mutable)
+l1 = ['hello', 'world']
+print(l1)
+l1[0] = 'HELLO'
+print(l1)
+l1.append('Python')
+print(l1)
 
