@@ -47,9 +47,9 @@ x = 10
 y = 20
 print('===== before swap =====')
 print(x, y)
-#
-#  코드를 짜서
-#
+temp = x
+x = y
+y = temp
 print('===== after swap =====')
 print(x, y)
 
