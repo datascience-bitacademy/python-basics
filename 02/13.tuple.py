@@ -37,7 +37,8 @@ except TypeError as e:
     print('튜플은 변경 불가 - immutable')
 
 # 튜플을 이용한 여러 값의 대입
-x, y, z = 10, 20, 30
+t = 10, 20, 30
+x, y, z = t
 print(x, y, z)
 
 # 튜플을 이용한 여러 값의 치환
