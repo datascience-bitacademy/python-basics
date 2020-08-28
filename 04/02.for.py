@@ -46,7 +46,7 @@ else:
 
 print("\n--------------------------")
 
-# break
+# continue
 for n in range(10):
     if n <= 5:
         continue
