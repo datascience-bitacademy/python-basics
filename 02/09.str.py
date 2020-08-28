@@ -69,31 +69,118 @@ print('====== 포맷팅 =======')
 # tuple
 print("name: %s, age: %d" % ('둘리', 10))
 
+# dict
+print("name: %(name)s, age: %(age)d" % {'age': 10, 'name': '둘리'})
+
 # format() 함수
 name = '마이콜'
 age = 30
-print("name: " + format(name, 's') + ",age: " + format(age, 'd'))
+print("name: " + format(name, 's') + " ,age: " + format(age, 'd'))
+
+# format() 객체 함수
+print("name: {}, age: {}".format(name, age))
+print("name: {0}, age: {1}".format(name, age))
+print("name: {1}, age: {0}".format(age, name))
+print("name: {n}, age: {a}".format_map({'n': name, 'a': age}))
 
 print('======== 객체함수 =======')
+# 대소문자
 s8 = 'i like Python'
 print(s8.upper())
 print(s8.lower())
 print(s8.swapcase())
 print(s8.capitalize())
 print(s8.title())
-
+# 검색
 s9 = 'I Like Python, I Like Java Also'
 print(s9.count('Like'))
 print(s9.find('Like'))
 print(s9.find('Like', 5))
 print(s9.find('JavaScript'))
 print(s9.rfind('Like'))
+print(s9.startswith('I Like'))
+print(s9.startswith('I Like', 2))
+print(s9.endswith('Also'))
+print(s9.endswith('Java', 0, 26))
+try:
+    print(s9.rindex('Like'))
+    s9.index('JavaScript')
+except ValueError as ex:
+    print('index()는 발견하지 못하면 예외가 발생한다.')
+    # 예외
+    # 1. 로그를 남긴다.
+    # 2. 사용자한테 사과.
+    # 3. 정상종료
+
+# 편집과 치환
+s10 = '  spam and ham   '
+print('-------' + s10.strip() + '------')
+print('-------' + s10.rstrip() + '------')
+print('-------' + s10.lstrip() + '------')
+
+s11 = '<><abc><><defg><>'
+print('-------' + s11.strip('<>') + '------')
+
+s12 = 'Hello Java Java Java'
+print('-------' + s12.replace('Java', '') + '------')
+
+# 정렬
+s13 = 'King and Queen'
+print('---' + s13.center(30) + '---')
+print('---' + s13.ljust(30) + '---')
+print('---' + s13.rjust(30) + '---')
+
+# 분리
+s14 = 'spam and ham'
+r = s14.split(' and ')
+print(r, type(r))
+
+s15 = 'one:two:three:four'
+r = s15.split(':')
+print(r)
+
+r = s15.split(':', 2)
+print(r)
+
+r = s15.rsplit(':', 2)
+print(r)
+
+lines = '''1st line
+2nd line
+3rd line
+4th line
+'''
+r = lines.split('\n')
+print(r)
+
+r = lines.splitlines()
+print(r)
+
+# 결합
+s16 = '&'.join(r)
+print(s16)
+
+# 판별
+print("1234".isdigit())
+print("abcd".isalpha())
+print("1234".isalpha())
+print("abcd".isdigit())
+print("abcd".islower())
+print("ABCD".isupper())
+print(" ".isspace())
+print("".isspace())
+print("\n".isspace())
+print("\t".isspace())
+
+#  '0' 채우기
+number = 234
+print(str(number).zfill(5))
+
 
 # str 객체는 변경할 수 없다(불변성, Immutable)
 # s10 = 'hello'
 # s10[0] = 'f'
 # print(s10)
-
 # [cf] list는 변경 가능하다(mutable)
 l1 = ['hello', 'world']
 print(l1)
