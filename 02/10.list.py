@@ -2,6 +2,7 @@
 l1 = []
 l2 = [1, True, 'python', 3.14]
 
+
 print("=============== sequence 타입 특징 ================")
 # 인덱싱(sequence 타입 특징)
 print(l2[0], l2[1], l2[2], l2[3])
@@ -152,8 +153,10 @@ l12 = [19, 46, 37, 28, 91, 55, 64]
 l13 = sorted(l12)
 print(l13)
 
+
 def f(i):
     return i % 10
+
 
 l14 = sorted(l12, key=f, reverse=False)
 print(l14)
