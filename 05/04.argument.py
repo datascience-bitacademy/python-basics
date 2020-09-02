@@ -44,3 +44,53 @@ print("========================")
 _print(10, 20, 30, sep=':')
 print("========================")
 
+print('=== 정의되지 않은 키워드 인수 처리하기 ===')
+def area(width, height, **args):
+    print(width, height)
+    print(args)
+
+area(10, 20)
+area(10, 20, depth=10)
+area(10, 20, depth=10, dimension=3)
+# 에러
+# area(10, 20, depth=10, 3)
+
+def g(a, b, *args, **kw):
+    print(a, b)
+    print(args)
+    print(kw)
+
+g(10, 20)
+g(10, 20, 30)
+g(10, 20, c=60)
+g(10, 20, 30, 40, 50, c=60, d=70)
+
+
+print('=== 튜플/사전 파라미터 ===')
+def h(name, age, height):
+    print(name, age, height)
+
+name = '둘리'
+age = 10
+height = 150
+h(name, age, height)
+
+t = ('둘리', 10, 150)
+h(t[0], t[1], t[2])
+h(*t)
+
+d = {'name': '둘리', 'age': 10, 'height': 150}
+h(**d)
+
+
+
+
+
+
+
+
+
+
+
+
+
