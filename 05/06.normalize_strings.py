@@ -31,9 +31,10 @@ print(states)
 
 #####################################################################################################################
 
+
 states = ['Alabama', ' Georgia!', 'Georgia ', 'georgia', 'FlOrIda', 'south carolina ', 'West virginia?']
-# data0 ---> data1 ---> data2 ----> data3
-#        f1         f2         f3
+# data ===========> data0 ---> data2 ----> data3 ----->  data4 ---->  insight
+#        crawling         p_f2       p_f3        a_f1          a_f2
 def clean_strings(strings, *funcs):
     results = []
     for s in strings:
@@ -43,10 +44,7 @@ def clean_strings(strings, *funcs):
     return results
 
 
-def remove_special(a):
-    return re.sub('[?!#*&$@]', '', a)
-
-states = clean_strings(states, str.strip, remove_special, str.title)
+states = clean_strings(states, str.strip, lambda x: re.sub('[?!#*&$@]', '', x), str.title)
 print(states)
 
 
