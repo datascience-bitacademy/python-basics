@@ -1,7 +1,12 @@
 # 생성
+# s = {} # 셋이 아님, dict 임
+s = set() # 빈 집합
 s = {1, 2, 3}
+
 print(s, type(s))
 
+# 순서가 없고, 중복 허용 않음
+# 인덱싱, 슬라이싱 안됨
 # 기본 연산
 print(len(s))
 print(2 in s)
@@ -35,7 +40,7 @@ except KeyError as e:
 s3.remove(7)
 print(s3)
 
-s3.update({2, 4, 6})
+s3.update({2, 4, 6}) # 이미 있는 키는 추가되지 않음
 print(s3)
 
 s3.clear()
@@ -48,16 +53,30 @@ s5 = {10, 20, 30}
 # 합집합
 s6 = s4.union(s5)
 print(s6)
+# 합집합 연산자 (|)
+print(s4, " 합집합", s5, "=", s4 | s5)
 
 # 교집합
 s7 = s4.intersection(s5)
 print(s7)
+# 교집합 연산자 (&)
+print(s4, "교집합", s5, "=", s4 & s5)
 
 # 차집합
 s8 = s4.difference(s5)
 print(s8)
+# 차집합 연산자 (-)
+print(s4, "차집합", s5, "=", s4 - s5)
 
-# 대칭차 집합
+# 대칭차 2
 s9 = s4.symmetric_difference(s5)
 print(s9)
 
+# 집합 판별 함수
+numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9}
+odds = { 1, 3, 5, 7, 9 }
+
+#   모집합의 확인 issuperset
+print(numbers, "는", odds, "의 모집합?", numbers.issuperset(odds))
+# 부분집합의 확인 issubset
+print(odds, "는", numbers, "의 부분집합?", odds.issubset(numbers))
