@@ -24,6 +24,7 @@ print(x, y, z)
 
 
 # 동적 타이핑(실행 중에 변수의 타입을 결정한다)
+# 중요
 a = 1
 print(type(a))
 a = 'hello'
@@ -52,6 +53,5 @@ x = y
 y = temp
 print('===== after swap =====')
 print(x, y)
-
 
 

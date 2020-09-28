@@ -2,7 +2,7 @@ a = 23
 a = 20 + 3
 
 print(a, type(a))
-print(isinstance(a, int))
+print(isinstance(a, int)) # a는 int의 객체인가?
 
 # 2진수, 10진수, 8진수, 16진수
 b = 0b1101

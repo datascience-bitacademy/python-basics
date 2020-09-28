@@ -19,6 +19,7 @@ print(a < 30 and a != 30)
 print(a == 30 or a > 30)
 
 # 논리식의 계산순서
+# Circuit Break
 print(True or bool('logical'))
 print(True or 'logical')
 print(False or 'logical')

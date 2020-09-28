@@ -8,6 +8,6 @@ print(b.is_integer())
 
 c = 3e3
 print(c)
-d = 0.2e-4
+d = 0.2e-4 # == 0.2 * 10 ** -4
 print(d)
 

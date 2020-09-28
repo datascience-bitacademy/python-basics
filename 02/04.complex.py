@@ -7,3 +7,7 @@ print(a, type(a))
 b = 7 - 2j
 print(a + b)
 
+print(b, "의 실수부:", b.real)
+print(b, "의 허수부:", b.imag)
+print(b, "의 켤레복소수:", b.conjugate())
+
