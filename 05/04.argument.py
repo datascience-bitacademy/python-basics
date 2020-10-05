@@ -15,6 +15,7 @@ print('==== 키워드 인수 ====')
 def area_rect(width, height):
     return width * height
 
+# 인수 명을 명시하여 값을 전달할 수 있다
 print(area_rect(10, 20))
 print(area_rect(width=10, height=20))
 print(area_rect(height=20, width=10))
@@ -56,14 +57,17 @@ area(10, 20, depth=10, dimension=3)
 # area(10, 20, depth=10, 3)
 
 def g(a, b, *args, **kw):
+    # a, b -> 고정 인수
+    # args -> 가변 인수 (list)
+    # kw -> 지정되지 않은 키워드 인수(dict)
     print(a, b)
     print(args)
     print(kw)
 
-g(10, 20)
-g(10, 20, 30)
-g(10, 20, c=60)
-g(10, 20, 30, 40, 50, c=60, d=70)
+g(10, 20)   # 고정 인수 2개
+g(10, 20, 30)   # 고정 인수 2개, 가변인수 1개
+g(10, 20, c=60) # 고정 인수 2개, 키워드 인수 1개
+g(10, 20, 30, 40, 50, c=60, d=70) # 고정 인수 2개, 가변 인수 3개, 키워드 인수 2개
 
 
 print('=== 튜플/사전 파라미터 ===')

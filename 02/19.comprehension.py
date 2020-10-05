@@ -1,6 +1,10 @@
 numbers = [1, 2, 3, 4, 5, 6, 7, 8]
 results = []
 
+# 리스트 컴프리헨션
+# [ 값 연산식 for 객체 in 순차형 if 조건 ]
+
+# numbers 순차형의 모든 내부 요소를 제곱
 for n in numbers:
     result = n * n
     results.append(result)
@@ -41,10 +45,12 @@ results = [number for number in range(1, 101)
 print(results)
 
 # set comprehension
+# Syntax : { 값 연산식 for 객체 in 순차형 if 조건 }
 s = {s for s in strings if len(s) <= 2}
 print(s)
 
 # dict comprehension
+# Syntax : { 키연산식: 값연산삭 for 객체 in 순차형 if 조건 }
 d = {s: len(s) for s in strings}
 print(d)
 
