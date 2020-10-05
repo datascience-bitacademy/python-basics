@@ -26,12 +26,6 @@ class Point:
         return "Point({}, {})".format(self.x, self.y)
 
 
-    # def __enter__(self): # with ~ as 구문이 시작될 때
-    #     return self
-    #
-    # def __exit__(self, exc_type, exc_val, exc_tb): # with ~ as 구분이 종료될 때
-
-
     # 연산자 오버로딩
     # 새로운 클래스를 만들었다는 것은 새로운 자료형을 만들었다는 의미
     #   새 자료형에 대한 연산자의 작동 방식을 작성할 필요가 있다
